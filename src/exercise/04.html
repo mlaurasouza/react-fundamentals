@@ -36,11 +36,23 @@
     //Esta é uma função que retorna um JSX e tem props personalizadas
     //(subject e greeting)
     function Message({subject, greeting}) {
-            return (
-                <div className="message">
-                {greeting}, {subject}
-                </div>
+        return (
+            <div className="message">
+            {greeting}, {subject}
+            </div>
          )
+    }
+
+    function Soma({num1, num2}){
+        return(
+            <React.Fragment>
+                {/* React.Fragment permite agrupar vários elementos
+                HTML dentro de um mesmo componente React e retorná-los
+                em conjunto */}
+                <p>O resultado da soma é</p>
+                <div>{num1+ num2}</div>
+            </React.Fragment>
+        )
     }
 
     // Renderizar = processar um código JS para gerar elementos HTML
@@ -52,6 +64,9 @@
     //de tags HTML comuns.
     element = (
         <div className="container">
+                { /* Quando for necessário passar props cujo valor NÃO seja string
+                é necessário passar o valor entre chaves {} */}
+                <Soma num1={100} num2={200} />
                 <Message subject="mamãe" greeting="Alô"/>
                 <Message greeting="Bem-vindo" subject="humano"/>
         </div>
